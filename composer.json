@@ -1,0 +1,22 @@
+{
+    "name": "mateuszmesek-magento2/module-indexer-console",
+    "description": "N/A",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-indexer": "*",
+        "magento/module-store": "*",
+        "mateuszmesek-magento2/module-console": "*"
+    },
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MateuszMesek\\IndexerConsole\\": "src"
+        }
+    }
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="MateuszMesek\Console\ValueParser\Pool">
+        <arguments>
+            <argument name="parsers" xsi:type="array">
+                <item name="MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputDimensions" xsi:type="string">MateuszMesek\IndexerConsole\ValueParser\InputDimensions</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputPool">
+        <arguments>
+            <argument name="inputs" xsi:type="array">
+                <item name="entity_ids" xsi:type="string">MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputEntityIds</item>
+                <item name="store_ids" xsi:type="string">MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputStoreIds</item>
+                <item name="dimensions" xsi:type="string">MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputDimensions</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Indexer\Console\Command\IndexerReindexCommand">
+        <plugin name="MateuszMesek_IndexerConsole" type="MateuszMesek\IndexerConsole\Plugin\UpdateConsoleInputList\OnIndexerReindexCommand"/>
+    </type>
+    <type name="Magento\Indexer\Model\Indexer">
+        <plugin name="MateuszMesek_IndexerConsole" type="MateuszMesek\IndexerConsole\Plugin\ApplyInput\OnIndexer"/>
+    </type>
+    <type name="MateuszMesek\IndexerConsole\Plugin\ApplyInput\OnIndexer">
+        <arguments>
+            <argument name="inputEntityIds" xsi:type="object">MateuszMesek\IndexerConsole\ValueResolver\InputEntityIds</argument>
+        </arguments>
+    </type>
+    <virtualType name="MateuszMesek\IndexerConsole\ValueResolver\InputEntityIds" type="MateuszMesek\Console\ValueResolver\Option">
+        <arguments>
+            <argument name="name" xsi:type="const">MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputEntityIds::NAME</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Store\Model\StoreDimensionProvider">
+        <plugin name="MateuszMesek_IndexerConsole" type="MateuszMesek\IndexerConsole\Plugin\ApplyInput\OnStoreDimensionProvider"/>
+    </type>
+    <type name="MateuszMesek\IndexerConsole\Plugin\ApplyInput\OnStoreDimensionProvider">
+        <arguments>
+            <argument name="inputStoreIds" xsi:type="object">MateuszMesek\IndexerConsole\ValueResolver\InputStoreIds</argument>
+        </arguments>
+    </type>
+    <virtualType name="MateuszMesek\IndexerConsole\ValueResolver\InputStoreIds" type="MateuszMesek\Console\ValueResolver\Option">
+        <arguments>
+            <argument name="name" xsi:type="const">MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputStoreIds::NAME</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\Indexer\DimensionalIndexerInterface">
+        <plugin name="MateuszMesek_IndexerConsole" type="MateuszMesek\IndexerConsole\Plugin\ApplyInput\OnDimensionalIndexer"/>
+    </type>
+    <type name="MateuszMesek\IndexerConsole\Plugin\ApplyInput\OnDimensionalIndexer">
+        <arguments>
+            <argument name="inputDimensions" xsi:type="object">MateuszMesek\IndexerConsole\ValueResolver\InputDimensions</argument>
+        </arguments>
+    </type>
+    <virtualType name="MateuszMesek\IndexerConsole\ValueResolver\InputDimensions" type="MateuszMesek\Console\ValueResolver\Option">
+        <arguments>
+            <argument name="name" xsi:type="const">MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputDimensions::NAME</argument>
+        </arguments>
+    </virtualType>
+</config>
