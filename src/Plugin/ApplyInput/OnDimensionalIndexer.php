@@ -5,7 +5,6 @@ namespace MateuszMesek\IndexerConsole\Plugin\ApplyInput;
 use Magento\Framework\Indexer\DimensionalIndexerInterface;
 use Magento\Framework\Indexer\DimensionFactory;
 use MateuszMesek\Console\ValueResolver\ValueResolverInterface;
-use MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputDimensions;
 use Traversable;
 
 class OnDimensionalIndexer
@@ -26,7 +25,7 @@ class OnDimensionalIndexer
         DimensionalIndexerInterface $dimensionalIndexer,
         callable $proceed,
         array $dimensions,
-        Traversable $entityIds
+        Traversable $entityIds = null
     ): void
     {
         $inputDimensions = $this->inputDimensions->get();
