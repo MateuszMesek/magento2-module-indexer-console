@@ -19,8 +19,5 @@
         "psr-4": {
             "MateuszMesek\\IndexerConsole\\": ""
         }
-    },
-    "replace": {
-        "mateuszmesek-magento2/module-indexer-console": "*"
     }
 }
