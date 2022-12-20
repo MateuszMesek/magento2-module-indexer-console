@@ -1,23 +1,20 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\IndexerConsole\Plugin\ApplyInput;
+namespace MateuszMesek\IndexerConsole\Plugin\ApplyInput\EntityIds;
 
 use Magento\Indexer\Model\Indexer;
 use MateuszMesek\Console\Console\ValueResolver\ValueResolverInterface;
 
 class OnIndexer
 {
-    private ValueResolverInterface $inputEntityIds;
-
     public function __construct(
-        ValueResolverInterface $inputEntityIds
+        private readonly ValueResolverInterface $inputEntityIds
     )
     {
-        $this->inputEntityIds = $inputEntityIds;
     }
 
     public function aroundReindexAll(
-        Indexer $indexer,
+        Indexer  $indexer,
         callable $proceed
     ): void
     {

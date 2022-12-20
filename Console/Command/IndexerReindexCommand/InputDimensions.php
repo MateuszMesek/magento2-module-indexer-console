@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\IndexerConsole\Command\IndexerReindexCommand;
+namespace MateuszMesek\IndexerConsole\Console\Command\IndexerReindexCommand;
 
 use Symfony\Component\Console\Input\InputOption;
 

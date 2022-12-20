@@ -3,22 +3,19 @@
 namespace MateuszMesek\IndexerConsole\Plugin\UpdateConsoleInputList;
 
 use Magento\Indexer\Console\Command\IndexerReindexCommand;
-use MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputPool;
+use MateuszMesek\IndexerConsole\Console\Command\IndexerReindexCommand\InputPool;
 
 class OnIndexerReindexCommand
 {
-    private InputPool $inputPool;
-
     public function __construct(
-        InputPool $inputPool
+        private readonly InputPool $inputPool
     )
     {
-        $this->inputPool = $inputPool;
     }
 
     public function afterGetInputList(
         IndexerReindexCommand $indexerReindexCommand,
-        array $inputList
+        array                 $inputList
     ): array
     {
         foreach ($this->inputPool->getAll() as $input) {

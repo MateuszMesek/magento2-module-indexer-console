@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\IndexerConsole\Command\IndexerReindexCommand;
+namespace MateuszMesek\IndexerConsole\Console\Command\IndexerReindexCommand;
 
 use Magento\Framework\ObjectManager\TMap;
 use Magento\Framework\ObjectManager\TMapFactory;
@@ -21,9 +21,6 @@ class InputPool
         ]);
     }
 
-    /**
-     * @return \Traversable|\MateuszMesek\IndexerConsole\Command\IndexerReindexCommand\InputInterface[]
-     */
     public function getAll(): Traversable
     {
         foreach ($this->inputs->getIterator() as $input) {

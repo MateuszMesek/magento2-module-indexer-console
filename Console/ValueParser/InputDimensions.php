@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\IndexerConsole\ValueParser;
+namespace MateuszMesek\IndexerConsole\Console\ValueParser;
 
 use InvalidArgumentException;
 use MateuszMesek\Console\Console\ValueParser\JsonValueParser;

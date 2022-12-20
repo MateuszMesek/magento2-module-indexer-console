@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\IndexerConsole\Plugin\ApplyInput;
+namespace MateuszMesek\IndexerConsole\Plugin\ApplyInput\StoreIds;
 
 use Magento\Framework\Indexer\DimensionFactory;
 use Magento\Store\Model\StoreDimensionProvider;
@@ -9,21 +9,17 @@ use Traversable;
 
 class OnStoreDimensionProvider
 {
-    private ValueResolverInterface $inputStoreIds;
-    private DimensionFactory $dimensionFactory;
 
     public function __construct(
-        ValueResolverInterface $inputStoreIds,
-        DimensionFactory $dimensionFactory
+        private readonly ValueResolverInterface $inputStoreIds,
+        private readonly DimensionFactory       $dimensionFactory
     )
     {
-        $this->inputStoreIds = $inputStoreIds;
-        $this->dimensionFactory = $dimensionFactory;
     }
 
     public function aroundGetIterator(
         StoreDimensionProvider $storeDimensionProvider,
-        callable $proceed
+        callable               $proceed
     ): Traversable
     {
         $storeIds = $this->inputStoreIds->get();
