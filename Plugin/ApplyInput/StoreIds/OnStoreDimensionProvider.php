@@ -4,7 +4,7 @@ namespace MateuszMesek\IndexerConsole\Plugin\ApplyInput;
 
 use Magento\Framework\Indexer\DimensionFactory;
 use Magento\Store\Model\StoreDimensionProvider;
-use MateuszMesek\Console\ValueResolver\ValueResolverInterface;
+use MateuszMesek\Console\Console\ValueResolver\ValueResolverInterface;
 use Traversable;
 
 class OnStoreDimensionProvider

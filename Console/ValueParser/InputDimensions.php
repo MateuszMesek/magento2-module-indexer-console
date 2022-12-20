@@ -3,7 +3,7 @@
 namespace MateuszMesek\IndexerConsole\ValueParser;
 
 use InvalidArgumentException;
-use MateuszMesek\Console\ValueParser\JsonValueParser;
+use MateuszMesek\Console\Console\ValueParser\JsonValueParser;
 
 class InputDimensions extends JsonValueParser
 {

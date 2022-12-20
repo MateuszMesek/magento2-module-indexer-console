@@ -2,7 +2,7 @@
 
 namespace MateuszMesek\IndexerConsole\Command\IndexerReindexCommand;
 
-use MateuszMesek\Console\Input\InputRangeOption;
+use MateuszMesek\Console\Console\Input\InputRangeOption;
 
 class InputStoreIds extends InputRangeOption implements InputInterface
 {

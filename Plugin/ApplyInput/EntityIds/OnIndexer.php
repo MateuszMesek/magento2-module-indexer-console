@@ -3,7 +3,7 @@
 namespace MateuszMesek\IndexerConsole\Plugin\ApplyInput;
 
 use Magento\Indexer\Model\Indexer;
-use MateuszMesek\Console\ValueResolver\ValueResolverInterface;
+use MateuszMesek\Console\Console\ValueResolver\ValueResolverInterface;
 
 class OnIndexer
 {
